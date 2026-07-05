@@ -52,7 +52,7 @@ export default function ProductsPage() {
   const { data, isLoading, error } = useQuery<any>({
     queryKey: ["products-list", queryParams],
     queryFn: () => api.get("/products", { params: queryParams }),
-    placeholderData: (previousData) => previousData, // keep old data during transitions
+    placeholderData: (previousData: unknown) => previousData, // keep old data during transitions
   });
 
   const products = data?.items || [];
